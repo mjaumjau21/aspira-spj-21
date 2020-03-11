@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # **React** #
 
-Simple React example.
+GitHub Manager example.
 
 
 ## How to use ##
@@ -14,11 +14,11 @@ First, make sure you have **Node.js** (npm) installed.
 git clone https://github.com/ilovric00/aspira-spj-20.git
 ```
 
-### Checkout to lection-3/task-2 branch
+### Checkout to lection-3/task-3 branch
 
 ```
 cd aspira-spj-20
-git checkout lection-3/task-2
+git checkout lection-3/task-3
 ```
 
 ### Run development server

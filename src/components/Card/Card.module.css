@@ -1,0 +1,30 @@
+.card {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  background-color: #fff;
+  text-align: center;
+  color: #3e3e43;
+  min-width: 15.625rem;
+  margin: 1.25rem auto;
+  padding: 1.25rem;
+  border: 1px solid #f0f0f0;
+  border-radius: 0.3125rem;
+}
+
+.content {
+  margin-left: 0.6rem;
+  text-align: left;
+}
+
+.title {
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.5rem;      
+  font-weight: 100;
+}
