@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styles from './App.module.css';
 import Header from '../Header/Header';
 import Sidebar from '../Sidebar/Sidebar';
-import Card from '../Card/Card';
+import Main from '../Main/Main';
 
 class App extends Component {
   constructor(props) {
@@ -29,8 +29,7 @@ class App extends Component {
         <Header />
         <div className={styles.containerFlex}>
           <Sidebar />
-          <Card {...this.state.cards[0]} />
-          <Card {...this.state.cards[1]} />
+          <Main cards={this.state.cards} />
         </div>
       </div>
     );
