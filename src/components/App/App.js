@@ -16,7 +16,16 @@ class App extends Component {
       },
       {
         id: 2,
-        name: 'John Doe',
+        avatar_url: "https://place-hold.it/75x75",
+        company: "Aspira"
+      }, {
+        id: 3,
+        name: 'Jane Doe',
+        avatar_url: "https://place-hold.it/75x75",
+        company: "Workspace"
+      }, {
+        id: 4,
+        name: 'Richard Roe',
         avatar_url: "https://place-hold.it/75x75",
         company: "Aspira"
       }],

@@ -5,7 +5,7 @@ import Card from '../Card/Card';
 const CardList = (props) => {
   return (
     <div className={styles.container}>
-      {props.cards.map(card => <Card key={card.id} {...card} />)}
+      {props.cards.map((card, index) => <Card key={card.id} index={index} {...card} />)}
     </div>
   );
 }
