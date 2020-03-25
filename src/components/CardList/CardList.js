@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './CardList.module.css';
 import Card from '../Card/Card';
+import PropTypes from 'prop-types';
 
 const CardList = (props) => {
   return (
@@ -8,6 +9,10 @@ const CardList = (props) => {
       {props.cards.map((card, index) => <Card key={card.id} index={index} {...card} />)}
     </div>
   );
+}
+
+CardList.propTypes = {
+  cards: PropTypes.array,
 }
 
 export default CardList;

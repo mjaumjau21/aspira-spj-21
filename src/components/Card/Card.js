@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Card.module.css';
+import PropTypes from 'prop-types';
 
 const Card = (props) => {
   const cardClass = `${styles.card} ${props.index % 2 ? styles.dark : ''}`;
@@ -12,6 +13,17 @@ const Card = (props) => {
       </div>
     </div>
   );
+}
+
+Card.propTypes = {
+  index: PropTypes.number.isRequired,
+  name: PropTypes.string,
+  avatar_url: PropTypes.string,
+  company: PropTypes.string,
+}
+
+Card.defaultProps = {
+  name: 'Stranger',
 }
 
 export default Card;
