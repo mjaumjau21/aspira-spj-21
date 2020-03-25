@@ -29,7 +29,12 @@ class App extends Component {
         avatar_url: "https://place-hold.it/75x75",
         company: "Aspira"
       }],
+      filteredCards: [],
     };
+  }
+
+  componentDidMount() {
+    this.setState({ filteredCards: this.state.cards });
   }
 
   render() {
@@ -38,7 +43,7 @@ class App extends Component {
         <Header />
         <div className={styles.containerFlex}>
           <Sidebar />
-          <Main cards={this.state.cards} />
+          <Main cards={this.state.filteredCards} />
         </div>
       </div>
     );
