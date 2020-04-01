@@ -6,7 +6,7 @@ import CardList from '../CardList/CardList';
 const Main = (props) => {
   return (
     <main className={styles.containerFlexColumn}>
-      <AddForm />
+      <AddForm onAddCards={props.onAddCards} />
       <CardList cards={props.cards} />
     </main>
   );
