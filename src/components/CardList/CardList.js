@@ -6,12 +6,15 @@ import PropTypes from 'prop-types';
 const CardList = (props) => {
   return (
     <div className={styles.container}>
-      {props.cards.map((card, index) => <Card key={card.id} index={index} {...card} />)}
+      {props.cards.map((card, index) => (
+        <Card key={card.id} index={index} {...card} onRemoveCard={props.onRemoveCard} />
+      ))}
     </div>
   );
 }
 
 CardList.propTypes = {
+  onRemoveCard: PropTypes.func,
   cards: PropTypes.array,
 }
 

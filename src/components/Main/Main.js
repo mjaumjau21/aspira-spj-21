@@ -8,13 +8,14 @@ const Main = (props) => {
   return (
     <main className={styles.containerFlexColumn}>
       <AddForm onAddCards={props.onAddCards} />
-      <CardList cards={props.cards} />
+      <CardList cards={props.cards} onRemoveCard={props.onRemoveCard} />
     </main>
   );
 }
 
 Main.propTypes = {
   onAddCards: PropTypes.func,
+  onRemoveCard: PropTypes.func,
   cards: PropTypes.array,
 }
 

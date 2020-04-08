@@ -45,6 +45,13 @@ class App extends Component {
     }));
   }
 
+  removeCard = id => {
+    this.setState(prevState => ({
+      cards: prevState.cards.filter(card => card.id !== id),
+      filteredCards: prevState.filteredCards.filter(card => card.id !== id),
+    }));
+  };
+
   filterCards = (searchText) => {
     this.setState(prevState => ({
       filteredCards: prevState.cards.filter(card => {
@@ -59,7 +66,7 @@ class App extends Component {
         <Header />
         <div className={styles.containerFlex}>
           <Sidebar onFilterCards={this.filterCards} />
-          <Main cards={this.state.filteredCards} onAddCards={this.addCard} />
+          <Main cards={this.state.filteredCards} onAddCards={this.addCard} onRemoveCard={this.removeCard} />
         </div>
       </div>
     );
