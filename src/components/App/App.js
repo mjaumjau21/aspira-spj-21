@@ -16,6 +16,7 @@ class App extends Component {
       },
       {
         id: 2,
+        name: 'Bruce Wayne',
         avatar_url: "https://place-hold.it/75x75",
         company: "Aspira"
       }, {
@@ -44,12 +45,20 @@ class App extends Component {
     }));
   }
 
+  filterCards = (searchText) => {
+    this.setState(prevState => ({
+      filteredCards: prevState.cards.filter(card => {
+        return card.name.toLowerCase().search(searchText.toLowerCase()) !== -1;
+      })
+    }));
+  }
+
   render() {
     return (
       <div className={styles.container}>
         <Header />
         <div className={styles.containerFlex}>
-          <Sidebar />
+          <Sidebar onFilterCards={this.filterCards} />
           <Main cards={this.state.filteredCards} onAddCards={this.addCard} />
         </div>
       </div>
