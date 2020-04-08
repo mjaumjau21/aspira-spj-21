@@ -37,13 +37,20 @@ class App extends Component {
     this.setState({ filteredCards: this.state.cards });
   }
 
+  addCard = (card) => {
+    this.setState(prevState => ({
+      cards: prevState.cards.concat(card),
+      filteredCards: prevState.filteredCards.concat(card)
+    }));
+  }
+
   render() {
     return (
       <div className={styles.container}>
         <Header />
         <div className={styles.containerFlex}>
           <Sidebar />
-          <Main cards={this.state.filteredCards} />
+          <Main cards={this.state.filteredCards} onAddCards={this.addCard} />
         </div>
       </div>
     );

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styles from './AddForm.module.css';
+import PropTypes from 'prop-types';
 
 class AddForm extends Component {
   constructor(props) {
@@ -9,10 +10,22 @@ class AddForm extends Component {
     }
   }
 
-  handleSubmit = (event) => {
+  handleSubmit = async (event) => {
     event.preventDefault();
-    // TODO: do something
-    alert('You have entered: ' + this.state.username);
+
+    try {
+      const response = await fetch(`https://api.github.com/users/${this.state.username}`);
+      const json = await response.json();
+
+      if (json.id) {
+        this.props.onAddCards(json);
+      } else {
+        alert(`User ${this.state.username} does not exist.`);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+
     this.setState({ username: '' });
   };
 
@@ -36,4 +49,9 @@ class AddForm extends Component {
     );
   }
 }
+
+AddForm.propTypes = {
+  onAddCards: PropTypes.func
+};
+
 export default AddForm;
