@@ -31,6 +31,7 @@ class App extends Component {
         company: "Aspira"
       }],
       filteredCards: [],
+      bookmarkedCards: [],
     };
   }
 
@@ -49,7 +50,20 @@ class App extends Component {
     this.setState(prevState => ({
       cards: prevState.cards.filter(card => card.id !== id),
       filteredCards: prevState.filteredCards.filter(card => card.id !== id),
+      bookmarkedCards: prevState.bookmarkedCards.filter(card => card.id !== id),
     }));
+  };
+
+  bookmarkCard = id => {
+    if (this.state.bookmarkedCards.some(card => card.id === id)) {
+      this.setState(prevState => ({
+        bookmarkedCards: prevState.bookmarkedCards.filter(card => card.id !== id),
+      }));
+    } else {
+      this.setState(prevState => ({
+        bookmarkedCards: prevState.bookmarkedCards.concat(prevState.cards.find(card => card.id === id)),
+      }));
+    }
   };
 
   filterCards = (searchText) => {
@@ -65,8 +79,8 @@ class App extends Component {
       <div className={styles.container}>
         <Header />
         <div className={styles.containerFlex}>
-          <Sidebar onFilterCards={this.filterCards} />
-          <Main cards={this.state.filteredCards} onAddCards={this.addCard} onRemoveCard={this.removeCard} />
+          <Sidebar onFilterCards={this.filterCards} cards={this.state.bookmarkedCards} />
+          <Main cards={this.state.filteredCards} onAddCards={this.addCard} onRemoveCard={this.removeCard} onBookmarkCard={this.bookmarkCard} />
         </div>
       </div>
     );

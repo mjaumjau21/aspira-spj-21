@@ -47,3 +47,17 @@
   cursor: pointer;
   opacity: 0.5;
 }
+
+.favoriteBttn {
+  position: absolute;
+  right: 1.625rem;
+  top: 0;
+  font-size: 1.25rem;
+  border: none;
+  background-color: transparent;
+}
+
+.favoriteBttn:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}

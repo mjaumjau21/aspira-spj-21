@@ -7,7 +7,7 @@ const CardList = (props) => {
   return (
     <div className={styles.container}>
       {props.cards.map((card, index) => (
-        <Card key={card.id} index={index} {...card} onRemoveCard={props.onRemoveCard} />
+        <Card key={card.id} index={index} {...card} onRemoveCard={props.onRemoveCard} onBookmarkCard={props.onBookmarkCard} />
       ))}
     </div>
   );
@@ -15,6 +15,7 @@ const CardList = (props) => {
 
 CardList.propTypes = {
   onRemoveCard: PropTypes.func,
+  onBookmarkCard: PropTypes.func,
   cards: PropTypes.array,
 }
 
