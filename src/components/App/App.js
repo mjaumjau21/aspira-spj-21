@@ -3,8 +3,6 @@ import styles from './App.module.css';
 import Header from '../Header/Header';
 import Sidebar from '../Sidebar/Sidebar';
 import Main from '../Main/Main';
-import Modal from '../Modal/Modal';
-import EditForm from '../EditForm/EditForm';
 
 class App extends Component {
   constructor(props) {
@@ -34,8 +32,6 @@ class App extends Component {
       }],
       filteredCards: [],
       bookmarkedCards: [],
-      isModalOpen: false,
-      card: null,
     };
   }
 
@@ -78,16 +74,6 @@ class App extends Component {
     }));
   }
 
-  toggleModal = () => {
-    this.setState({ isModalOpen: !this.state.isModalOpen });
-  }
-
-  editCard = id => {
-    const card = this.state.cards.find(card => card.id === id);
-    this.setState({ card });
-    this.toggleModal();
-  }
-
   updateCard = card => {
     const index = this.state.cards.findIndex(c => c.id === card.id);
     const indexF = this.state.filteredCards.findIndex(c => c.id === card.id);
@@ -103,7 +89,7 @@ class App extends Component {
         card,
         ...prevState.filteredCards.slice(indexF + 1)
       ],
-    }), this.toggleModal());
+    }));
   };
 
   render() {
@@ -111,12 +97,18 @@ class App extends Component {
       <div className={styles.container}>
         <Header />
         <div className={styles.containerFlex}>
-          <Sidebar onFilterCards={this.filterCards} cards={this.state.bookmarkedCards} />
-          <Main cards={this.state.filteredCards} onAddCards={this.addCard} onRemoveCard={this.removeCard} onEditCard={this.editCard} onBookmarkCard={this.bookmarkCard} />
+          <Sidebar
+            cards={this.state.bookmarkedCards}
+            onFilterCards={this.filterCards}
+          />
+          <Main
+            cards={this.state.filteredCards}
+            onAddCards={this.addCard}
+            onRemoveCard={this.removeCard}
+            onUpdateCard={this.updateCard}
+            onBookmarkCard={this.bookmarkCard}
+          />
         </div>
-        <Modal isOpen={this.state.isModalOpen} onClose={this.toggleModal}>
-          <EditForm card={this.state.card} onUpdateCard={this.updateCard} />
-        </Modal>
       </div>
     );
   }

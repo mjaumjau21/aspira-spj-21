@@ -8,7 +8,12 @@ const Main = (props) => {
   return (
     <main className={styles.containerFlexColumn}>
       <AddForm onAddCards={props.onAddCards} />
-      <CardList cards={props.cards} onRemoveCard={props.onRemoveCard} onEditCard={props.onEditCard} onBookmarkCard={props.onBookmarkCard} />
+      <CardList
+        cards={props.cards}
+        onRemoveCard={props.onRemoveCard}
+        onUpdateCard={props.onUpdateCard}
+        onBookmarkCard={props.onBookmarkCard}
+      />
     </main>
   );
 }
@@ -16,7 +21,7 @@ const Main = (props) => {
 Main.propTypes = {
   onAddCards: PropTypes.func,
   onRemoveCard: PropTypes.func,
-  onEditCard: PropTypes.func,
+  onUpdateCard: PropTypes.func,
   onBookmarkCard: PropTypes.func,
   cards: PropTypes.array,
 }
