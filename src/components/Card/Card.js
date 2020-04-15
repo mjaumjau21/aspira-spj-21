@@ -14,6 +14,9 @@ const Card = (props) => {
       <button className={styles.favoriteBttn} onClick={() => props.onBookmarkCard(props.id)}>
         &#9734;
       </button>
+      <button className={styles.editBttn} onClick={() => props.onEditCard(props.id)}>
+        &#9998;
+      </button>
       <button className={styles.closeBttn} onClick={() => props.onRemoveCard(props.id)}>
         &times;
       </button>
@@ -23,6 +26,7 @@ const Card = (props) => {
 
 Card.propTypes = {
   onRemoveCard: PropTypes.func,
+  onEditCard: PropTypes.func,
   onBookmarkCard: PropTypes.func,
   index: PropTypes.number.isRequired,
   name: PropTypes.string,

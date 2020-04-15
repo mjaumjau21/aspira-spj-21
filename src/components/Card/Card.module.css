@@ -50,7 +50,7 @@
 
 .favoriteBttn {
   position: absolute;
-  right: 1.625rem;
+  right: 3.625rem;
   top: 0;
   font-size: 1.25rem;
   border: none;
@@ -58,6 +58,20 @@
 }
 
 .favoriteBttn:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.editBttn {
+  position: absolute;
+  right: 1.625rem;
+  top: 0;
+  font-size: 1.25rem;
+  border: none;
+  background-color: transparent;
+}
+
+.editBttn:hover {
   cursor: pointer;
   opacity: 0.5;
 }
