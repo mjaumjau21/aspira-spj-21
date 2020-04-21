@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import styles from './Search.module.css';
-import PropTypes from 'prop-types';
 
 class Search extends Component {
   handleChange = (event) => {
-    this.props.onFilterCards(event.target.value);
+    // TODO: implement search functionality
   };
 
   render() {
@@ -19,10 +18,6 @@ class Search extends Component {
       </div>
     );
   }
-}
-
-Search.propTypes = {
-  onFilterCards: PropTypes.func
 }
 
 export default Search;

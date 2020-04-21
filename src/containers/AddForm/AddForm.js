@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { addCard } from '../../redux/actions';
 import styles from './AddForm.module.css';
-import PropTypes from 'prop-types';
 
 class AddForm extends Component {
   constructor(props) {
@@ -18,7 +20,7 @@ class AddForm extends Component {
       const json = await response.json();
 
       if (json.id) {
-        this.props.onAddCards(json);
+        this.props.actions.addCard(json);
       } else {
         alert(`User ${this.state.username} does not exist.`);
       }
@@ -50,8 +52,18 @@ class AddForm extends Component {
   }
 }
 
-AddForm.propTypes = {
-  onAddCards: PropTypes.func
-};
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(
+      {
+        addCard
+      },
+      dispatch
+    )
+  };
+}
 
-export default AddForm;
+export default connect(
+  null,
+  mapDispatchToProps
+)(AddForm);

@@ -21,7 +21,7 @@ class Card extends Component {
       <div className={cardClass}>
         <img src={this.props.card.avatar_url} width="75" height="75" alt="avatar" />
         {this.state.isEditing ? (
-          <EditForm card={this.props.card} onUpdateCard={this.props.onUpdateCard} onToggleEditing={this.toggleEditing} />
+          <EditForm card={this.props.card} onToggleEditing={this.toggleEditing} />
         ) : (
           <CardDetails {...this.props} onToggleEditing={this.toggleEditing} />
         )}
@@ -37,15 +37,9 @@ const CardDetails = (props) => {
         <div className={styles.title}>{props.card.name}</div>
         <div className={styles.description}>{props.card.company}</div>
       </div>
-      <button className={styles.favoriteBttn} onClick={() => props.onBookmarkCard(props.card.id)}>
-        &#9734;
-      </button>
-      <button className={styles.editBttn} onClick={props.onToggleEditing}>
-        &#9998;
-      </button>
-      <button className={styles.closeBttn} onClick={() => props.onRemoveCard(props.card.id)}>
-        &times;
-      </button>
+      <button className={styles.favoriteBttn}>&#9734;</button>
+      <button className={styles.editBttn} onClick={props.onToggleEditing}>&#9998;</button>
+      <button className={styles.closeBttn}>&times;</button>
     </>
   )
 }
@@ -53,9 +47,6 @@ const CardDetails = (props) => {
 Card.propTypes = {
   index: PropTypes.number.isRequired,
   card: PropTypes.object,
-  onRemoveCard: PropTypes.func,
-  onUpdateCard: PropTypes.func,
-  onBookmarkCard: PropTypes.func,
 }
 
 Card.defaultProps = {

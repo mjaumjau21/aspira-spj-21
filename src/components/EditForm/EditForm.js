@@ -12,7 +12,7 @@ class EditForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.onUpdateCard(this.state);
+    // TODO: implement update functionality
     this.props.onToggleEditing();
   };
 
@@ -53,7 +53,6 @@ class EditForm extends Component {
 
 EditForm.propTypes = {
   card: PropTypes.object,
-  onUpdateCard: PropTypes.func,
   onToggleEditing: PropTypes.func,
 };
 
