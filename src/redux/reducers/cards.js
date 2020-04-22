@@ -1,4 +1,4 @@
-import { ADD_CARD, REMOVE_CARD, FILTER_CARDS } from '../actions';
+import { ADD_CARD, REMOVE_CARD, FILTER_CARDS, BOOKMARK_CARD } from '../actions';
 
 const initialState = {
   cards: [
@@ -51,6 +51,20 @@ function filterCards(state, action) {
   });
 }
 
+function bookmarkCard(state, action) {
+  if (state.bookmarkedCards.some(card => card.id === action.payload)) {
+    return {
+      ...state,
+      bookmarkedCards: state.bookmarkedCards.filter(card => card.id !== action.payload)
+    };
+  } else {
+    return {
+      ...state,
+      bookmarkedCards: state.bookmarkedCards.concat(state.cards.find(card => card.id === action.payload)),
+    };
+  }
+};
+
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case ADD_CARD:
@@ -61,6 +75,9 @@ export default function reducer(state = initialState, action) {
 
     case FILTER_CARDS:
       return filterCards(state, action);
+
+    case BOOKMARK_CARD:
+      return bookmarkCard(state, action);
 
     default:
       return state;

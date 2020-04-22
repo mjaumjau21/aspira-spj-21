@@ -8,3 +8,6 @@ export const removeCard = createAction(REMOVE_CARD);
 
 export const FILTER_CARDS = "FILTER_CARDS";
 export const filterCards = createAction(FILTER_CARDS);
+
+export const BOOKMARK_CARD = "BOOKMARK_CARD";
+export const bookmarkCard = createAction(BOOKMARK_CARD);
