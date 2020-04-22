@@ -1,4 +1,4 @@
-import { ADD_CARD } from '../actions';
+import { ADD_CARD, FILTER_CARDS } from '../actions';
 
 const initialState = {
   cards: [
@@ -27,10 +27,23 @@ function addCard(state, action) {
     filteredCards: [...state.cards, action.payload]
   };
 }
+
+function filterCards(state, action) {
+  return Object.assign({}, state, {
+    filteredCards: state.cards.filter(
+      card =>
+        card.name.toLowerCase().search(action.payload.toLowerCase()) !== -1
+    )
+  });
+}
+
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case ADD_CARD:
       return addCard(state, action);
+
+    case FILTER_CARDS:
+      return filterCards(state, action);
 
     default:
       return state;

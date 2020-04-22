@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Sidebar.module.css';
-import Search from '../Search/Search';
+import Search from '../../containers/Search/Search';
 import Favorite from '../Favorite/Favorite';
 import PropTypes from 'prop-types';
 
