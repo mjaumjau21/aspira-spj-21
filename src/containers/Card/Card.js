@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { removeCard } from '../../redux/actions';
 import styles from './Card.module.css';
-import EditForm from '../EditForm/EditForm';
+import EditForm from '../../components/EditForm/EditForm';
 import PropTypes from 'prop-types';
 
 class Card extends Component {
@@ -39,7 +42,7 @@ const CardDetails = (props) => {
       </div>
       <button className={styles.favoriteBttn}>&#9734;</button>
       <button className={styles.editBttn} onClick={props.onToggleEditing}>&#9998;</button>
-      <button className={styles.closeBttn}>&times;</button>
+      <button className={styles.closeBttn} onClick={() => props.actions.removeCard(props.index)}>&times;</button>
     </>
   )
 }
@@ -53,4 +56,18 @@ Card.defaultProps = {
   name: 'Stranger',
 }
 
-export default Card;
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(
+      {
+        removeCard
+      },
+      dispatch
+    )
+  };
+}
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Card);

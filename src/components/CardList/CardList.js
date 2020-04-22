@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './CardList.module.css';
-import Card from '../Card/Card';
+import Card from '../../containers/Card/Card';
 import PropTypes from 'prop-types';
 
 const CardList = (props) => {
