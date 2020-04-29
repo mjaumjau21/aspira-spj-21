@@ -7,6 +7,7 @@ import Header from '../../components/Header/Header';
 import Home from '../../components/Home/Home';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import Main from '../../components/Main/Main';
+import Details from '../Details/Details';
 
 class App extends Component {
   render() {
@@ -27,6 +28,7 @@ class App extends Component {
               )}
             />
             <Route path="/about" component={About} />
+            <Route path="/users/:id" component={Details} />
           </div>
         </div>
       </Router>

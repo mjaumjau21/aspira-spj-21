@@ -1,0 +1,53 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  text-align: center;
+  color: #3e3e43;
+  min-width: 15.625rem;
+  margin: 1.25rem auto;
+  padding: 1.25rem;
+  border: 1px solid #f0f0f0;
+  border-radius: 0.3125rem;
+}
+
+.card img {
+  border-radius: 50%;
+}
+
+.content {
+  margin-top: 0.6rem;
+  text-align: left;
+  text-align: center;
+}
+
+.biography {
+  font-size: 0.8rem;
+  line-height: 1.5rem;
+  font-weight: 100;
+  font-style: italic;
+  text-align: center;
+}
+
+.title {
+  font-size: 1.25rem;
+  line-height: 3.5rem;
+  font-weight: 400;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 100;
+}
+
+.link {
+  display: block;
+  margin-top: 1rem;
+  text-decoration: none;
+  color: #3e3e43;
+  background-color: #f0f0f0;
+  padding: 0.25rem;
+}

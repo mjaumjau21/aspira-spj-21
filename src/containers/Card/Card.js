@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { removeCard, bookmarkCard } from '../../redux/actions';
+import { NavLink } from 'react-router-dom';
 import styles from './Card.module.css';
 import EditForm from '../../containers/EditForm/EditForm';
 import PropTypes from 'prop-types';
@@ -39,6 +40,9 @@ const CardDetails = (props) => {
       <div className={styles.content}>
         <div className={styles.title}>{props.card.name}</div>
         <div className={styles.description}>{props.card.company}</div>
+        <NavLink to={`/users/${props.card.id}`} className={styles.link}>
+          See more
+        </NavLink>
       </div>
       <button className={styles.favoriteBttn} onClick={() => props.actions.bookmarkCard(props.card.id)}>&#9734;</button>
       <button className={styles.editBttn} onClick={props.onToggleEditing}>&#9998;</button>
