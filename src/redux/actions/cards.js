@@ -6,6 +6,9 @@ export const addCard = createAction(ADD_CARD);
 export const REMOVE_CARD = "REMOVE_CARD";
 export const removeCard = createAction(REMOVE_CARD);
 
+export const EDIT_CARD = "EDIT_CARD";
+export const editCard = createAction(EDIT_CARD);
+
 export const FILTER_CARDS = "FILTER_CARDS";
 export const filterCards = createAction(FILTER_CARDS);
 

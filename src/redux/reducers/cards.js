@@ -1,4 +1,4 @@
-import { ADD_CARD, REMOVE_CARD, FILTER_CARDS, BOOKMARK_CARD } from '../actions';
+import { ADD_CARD, REMOVE_CARD, EDIT_CARD, FILTER_CARDS, BOOKMARK_CARD } from '../actions';
 
 const initialState = {
   cards: [
@@ -42,6 +42,25 @@ function removeCard(state, action) {
   };
 }
 
+function editCard(state, action) {
+  const index = state.cards.findIndex(c => c.id === action.payload.id);
+  const indexF = state.filteredCards.findIndex(c => c.id === action.payload.id);
+
+  return {
+    ...state,
+    cards: [
+      ...state.cards.slice(0, index),
+      action.payload,
+      ...state.cards.slice(index + 1)
+    ],
+    filteredCards: [
+      ...state.filteredCards.slice(0, indexF),
+      action.payload,
+      ...state.filteredCards.slice(indexF + 1)
+    ],
+  };
+}
+
 function filterCards(state, action) {
   return Object.assign({}, state, {
     filteredCards: state.cards.filter(
@@ -72,6 +91,9 @@ export default function reducer(state = initialState, action) {
     
     case REMOVE_CARD:
       return removeCard(state, action);
+    
+    case EDIT_CARD:
+      return editCard(state, action);
 
     case FILTER_CARDS:
       return filterCards(state, action);

@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { removeCard, bookmarkCard } from '../../redux/actions';
 import styles from './Card.module.css';
-import EditForm from '../../components/EditForm/EditForm';
+import EditForm from '../../containers/EditForm/EditForm';
 import PropTypes from 'prop-types';
 
 class Card extends Component {

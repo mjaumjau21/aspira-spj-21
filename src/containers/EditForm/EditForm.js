@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { editCard } from '../../redux/actions';
 import styles from './EditForm.module.css';
 import PropTypes from 'prop-types';
 
@@ -12,7 +15,7 @@ class EditForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    // TODO: implement update functionality
+    this.props.actions.editCard(this.state);
     this.props.onToggleEditing();
   };
 
@@ -56,4 +59,18 @@ EditForm.propTypes = {
   onToggleEditing: PropTypes.func,
 };
 
-export default EditForm;
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(
+      {
+        editCard
+      },
+      dispatch
+    )
+  };
+}
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(EditForm);
