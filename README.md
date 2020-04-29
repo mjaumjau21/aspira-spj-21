@@ -14,11 +14,11 @@ First, make sure you have **Node.js** (npm) installed.
 git clone https://github.com/ilovric00/aspira-spj-20.git
 ```
 
-### Checkout to lection-9/task-4 branch
+### Checkout to lection-10/task-1 branch
 
 ```
 cd aspira-spj-20
-git checkout lection-9/task-4
+git checkout lection-10/task-1
 ```
 
 ### Run development server

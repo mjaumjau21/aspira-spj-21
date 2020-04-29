@@ -1,20 +1,35 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import styles from './App.module.css';
+import About from '../../components/About/About';
 import Header from '../../components/Header/Header';
+import Home from '../../components/Home/Home';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import Main from '../../components/Main/Main';
 
 class App extends Component {
   render() {
     return (
-      <div className={styles.container}>
-        <Header />
-        <div className={styles.containerFlex}>
-          <Sidebar cards={this.props.bookmarkedCards} />
-          <Main cards={this.props.filteredCards} />
+      <Router>
+        <div className={styles.container}>
+          <Header />
+          <div className={styles.containerFlex}>
+            <Route exact path="/" component={Home} />
+            <Route
+              exact
+              path="/users"
+              render={() => (
+                <div className={styles.containerFlex}>
+                  <Sidebar cards={this.props.bookmarkedCards} />
+                  <Main cards={this.props.filteredCards} />
+                </div>
+              )}
+            />
+            <Route path="/about" component={About} />
+          </div>
         </div>
-      </div>
+      </Router>
     );
   }
 }
