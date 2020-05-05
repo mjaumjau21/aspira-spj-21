@@ -8,8 +8,20 @@ import Home from '../../components/Home/Home';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import Main from '../../components/Main/Main';
 import Details from '../Details/Details';
+import { addCards } from "../../redux/actions";
+import { getCards } from "../../services";
 
 class App extends Component {
+  fetchData = async () => {
+    const { dispatch } = this.props;
+    const json = await getCards();
+    dispatch(addCards(json));
+  };
+
+  componentDidMount() {
+    this.fetchData();
+  }
+
   render() {
     return (
       <Router>
