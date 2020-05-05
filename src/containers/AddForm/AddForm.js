@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { addCard } from '../../redux/actions';
+import { postCard } from "../../services";
 import styles from './AddForm.module.css';
 
 class AddForm extends Component {
@@ -20,6 +21,7 @@ class AddForm extends Component {
       const json = await response.json();
 
       if (json.id) {
+        await postCard(json);
         this.props.actions.addCard(json);
       } else {
         alert(`User ${this.state.username} does not exist.`);
