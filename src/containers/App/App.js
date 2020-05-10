@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import PrivateRoute from '../../components/Router/PrivateRoute';
 import styles from './App.module.css';
 import About from '../../components/About/About';
 import Header from '../../components/Header/Header';
@@ -39,8 +40,8 @@ class App extends Component {
                 </div>
               )}
             />
-            <Route path="/about" component={About} />
-            <Route path="/users/:id" component={Details} />
+            <PrivateRoute path="/about" component={About} />
+            <PrivateRoute path="/users/:id" component={Details} />
           </div>
         </div>
       </Router>

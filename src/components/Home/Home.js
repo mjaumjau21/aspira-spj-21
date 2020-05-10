@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Home.module.css';
+import Login from '../../containers/Login/Login';
 
 const Home = () => {
   return (
@@ -14,6 +15,8 @@ const Home = () => {
         occaecat cupidatat non proident, sunt in culpa qui officia deserunt
         mollit anim id est laborum."
       </p>
+      <h3>Login</h3>
+      <Login />
     </div>
   );
 };
