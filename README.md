@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-# **React** #
+# **React & Node/Express** #
 
 GitHub Manager example.
 
@@ -14,24 +14,23 @@ First, make sure you have **Node.js** (npm) installed.
 git clone https://github.com/ilovric00/aspira-spj-20.git
 ```
 
-### Checkout to lection-10/task-2 branch
+### Checkout to lection-12/task-1 branch
 
 ```
 cd aspira-spj-20
-git checkout lection-10/task-2
+git checkout lection-12/task-1
 ```
 
 ### Run development server
 
+This runs both client and server using [Concurrently](https://www.npmjs.com/package/concurrently).
+
 ```
 npm install
-npm start
+npm run dev
 ```
 Go to http://localhost:3000
 
-
-To get started, edit `src/App.js` and save to reload.
-
 ## Demo
 
-![Demo](./src/assets/Demo.png)
+![Demo](./client/src/assets/Demo.png)
